@@ -15,24 +15,24 @@ class _ReportScreenState extends State<ReportScreen> {
   Future<void> test() async {
     var input = [
       [
-        0,
-        0.36216216,
-        0.47118644,
-        0.38461538,
-        0.79411765,
-        0,
-        0,
-        0.28571429,
+        0.45378151,
+        0.31351351,
+        0.61016949,
+        0.27692308,
+        0.91176471,
+        0.12903226,
+        0.0,
+        0.35714286,
         0.19548872,
-        0.25257732,
-        0.64912281
+        0.43814433,
+        0.47368421
       ]
     ];
-    var output = List<double>(1);
-    final interpreter =
-        await Interpreter.fromAsset('Assets/Images/model.tflite');
+    var output = List(1).reshape([1, 1]);
+    final interpreter = await Interpreter.fromAsset('model.tflite');
 
     interpreter.run(input, output);
+    print('Neural Network Result:');
     print(output);
   }
 
@@ -72,7 +72,7 @@ class _ReportScreenState extends State<ReportScreen> {
         height: 100,
         color: Colors.grey,
         child: InkWell(
-          onTap: _loadModel,
+          onTap: test,
           child: Card(
             child: Text("Badimcan"),
           ),

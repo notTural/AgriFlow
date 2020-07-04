@@ -80,7 +80,7 @@ class _AddPlantState extends State<AddPlant> {
                                   MediaQuery.of(context).size.height * 0.035,
                             ),
                             Image(
-                              image: AssetImage("Assets/Images/eggPlant.png"),
+                              image: AssetImage("assets/Images/eggPlant.png"),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 4.0),
@@ -110,7 +110,7 @@ class _AddPlantState extends State<AddPlant> {
                                   MediaQuery.of(context).size.height * 0.035,
                             ),
                             Image(
-                              image: AssetImage("Assets/Images/Grape.png"),
+                              image: AssetImage("assets/Images/Grape.png"),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 4.0),
