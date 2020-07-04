@@ -10,6 +10,11 @@ class ReportScreen extends StatefulWidget {
 }
 
 class _ReportScreenState extends State<ReportScreen> {
+  final List<Widget> _children = [
+    // LoginScreen(),
+    // IntroScreen(),
+    // SignUpScreen(),
+  ];
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -61,6 +66,7 @@ class _ReportScreenState extends State<ReportScreen> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
+      body: _children[_selectedIndex],
       drawer: DrawerNavigation(),
     );
   }

@@ -3,13 +3,14 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class DrawerNavigation extends StatelessWidget {
   const DrawerNavigation({
-    Key key, ListView child,
+    Key key,
+    ListView child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(  
-      child:  ListView(
+    return Drawer(
+      child: ListView(
         children: <Widget>[
           Container(
             height: 100,
@@ -25,8 +26,10 @@ class DrawerNavigation extends StatelessWidget {
                         backgroundImage: AssetImage("Assets/Images/avatar.jpg"),
                       ),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.63,
+                        //width: MediaQuery.of(context).size.width * 0.63,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(
                               height: MediaQuery.of(context).size.width * 0.05,

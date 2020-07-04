@@ -2,6 +2,7 @@ import 'package:agri_flow/Screens/notification_screen.dart';
 import 'package:agri_flow/Screens/report_screen.dart';
 import 'package:agri_flow/Screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class LoginScreen extends StatefulWidget {
   final routeName = "LoginScreen";
@@ -11,10 +12,20 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _passwordVisible = false;
+  var usernameController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
-  void initState() {
+  initState() {
+    Hive.openBox('users');
     _passwordVisible = true;
+  }
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   height: 50,
                   child: TextField(
+                    controller: usernameController,
                     maxLines: 1,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
@@ -68,6 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   height: 50,
                   child: TextField(
+                    controller: passwordController,
                     maxLines: 1,
                     obscureText: _passwordVisible,
                     decoration: InputDecoration(
@@ -95,7 +108,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Colors.grey,
                         ),
                         onPressed: () {
-                          // Update the state i.e. toogle the state of passwordVisible variable
                           setState(() {
                             _passwordVisible = !_passwordVisible;
                           });
@@ -113,7 +125,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   elevation: 3,
                   color: Theme.of(context).primaryColor,
                   onPressed: () {
-                    Navigator.pushNamed(context, ReportScreen().routeName);
+                    if (userValidator(usernameController, passwordController))
+                      Navigator.pushNamed(context, ReportScreen().routeName);
                   },
                   child: Container(
                     child: Center(
@@ -165,5 +178,19 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  bool userValidator(
+      TextEditingController userCont, TextEditingController passCont) {
+    var box = Hive.box('users');
+
+    var pval = box.get(userCont.text, defaultValue: "");
+    if (pval == passCont.text) {
+      return true;
+    } else {
+      passCont.clear();
+
+      return false;
+    }
   }
 }

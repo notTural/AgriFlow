@@ -4,9 +4,15 @@ import './Screens/intro_screen.dart';
 import './Screens/login_screen.dart';
 import './Screens/sign_up_screen.dart';
 import './Screens/report_screen.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
+
+  final appDocumentDir = await getApplicationDocumentsDirectory();
+  print(appDocumentDir.toString());
+  Hive.init(appDocumentDir.path);
 }
 
 class MyApp extends StatelessWidget {
