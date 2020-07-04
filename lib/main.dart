@@ -1,7 +1,9 @@
+import 'package:agri_flow/Screens/notification_screen.dart';
 import 'package:flutter/material.dart';
 import './Screens/intro_screen.dart';
 import './Screens/login_screen.dart';
 import './Screens/sign_up_screen.dart';
+import './Screens/report_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         SignUpScreen().routeName: (ctx) => SignUpScreen(),
         LoginScreen().routeName: (ctx) => LoginScreen(),
+        NotificationScreen().routeName: (ctx) => NotificationScreen(),
+        ReportScreen().routeName: (ctx) => ReportScreen()
       },
     );
   }

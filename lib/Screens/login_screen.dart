@@ -1,3 +1,5 @@
+import 'package:agri_flow/Screens/notification_screen.dart';
+import 'package:agri_flow/Screens/report_screen.dart';
 import 'package:agri_flow/Screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
-    _passwordVisible = false;
+    _passwordVisible = true;
   }
 
   @override
@@ -67,7 +69,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   child: TextField(
                     maxLines: 1,
-                    obscuringCharacter: "*",
                     obscureText: _passwordVisible,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
@@ -111,7 +112,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(30)),
                   elevation: 3,
                   color: Theme.of(context).primaryColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, ReportScreen().routeName);
+                  },
                   child: Container(
                     child: Center(
                       child: Text(
@@ -132,11 +135,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Hesabınız yoxdur?"),
+                      Text("Hesabınız yoxdur?",
+                          style: TextStyle(
+                            color: Colors.redAccent,
+                          )),
                       SizedBox(
-                        width: 15,
+                        width: 30,
                       ),
                       InkWell(
                         onTap: () {
@@ -144,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               context, SignUpScreen().routeName);
                         },
                         child: Text(
-                          "Qeydiyyatdan keçin",
+                          "Qeydiyyat",
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                           ),

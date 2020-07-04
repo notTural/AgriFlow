@@ -67,7 +67,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 50,
                   child: TextField(
                     maxLines: 1,
-                    obscuringCharacter: "*",
                     obscureText: _passwordVisible,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
