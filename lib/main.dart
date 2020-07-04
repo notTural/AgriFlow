@@ -1,3 +1,4 @@
+import 'package:agri_flow/Screens/addPlant_screen.dart';
 import 'package:agri_flow/Screens/main_screen.dart';
 import 'package:agri_flow/Screens/notification_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,13 +22,14 @@ class MyApp extends StatelessWidget {
         accentColor: Color.fromARGB(255, 51, 120, 148),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ReportScreen(),
+      home: AddPlant(),
       initialRoute: '/',
       routes: {
         SignUpScreen().routeName: (ctx) => SignUpScreen(),
         LoginScreen().routeName: (ctx) => LoginScreen(),
         NotificationScreen().routeName: (ctx) => NotificationScreen(),
         ReportScreen().routeName: (ctx) => ReportScreen(),
+        AddPlant().routeName: (ctx) => AddPlant(),
         MainScreen().routeName: (ctx) => MainScreen()
       },
     );

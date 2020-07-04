@@ -3,6 +3,7 @@ import 'package:agri_flow/Screens/report_screen.dart';
 import 'package:agri_flow/Widgets/appbar.dart';
 import 'package:agri_flow/Widgets/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MainScreen extends StatefulWidget {
   final routeName = "MainScreen";
@@ -13,7 +14,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  List<Widget> route = [MainScreen(),LoginScreen(),ReportScreen()]
   void _onItemTapped(int index) {
     _selectedIndex = index;
     Navigator.pushNamed(context, MainScreen().routeName);
