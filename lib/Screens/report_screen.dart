@@ -1,5 +1,6 @@
 import 'package:agri_flow/Screens/notification_screen.dart';
 import 'package:agri_flow/Widgets/drawer.dart';
+import 'package:agri_flow/Widgets/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -62,6 +63,7 @@ class _ReportScreenState extends State<ReportScreen> {
         onTap: _onItemTapped,
       ),
       drawer: DrawerNavigation(),
+      body: Weather(),
     );
   }
 }
