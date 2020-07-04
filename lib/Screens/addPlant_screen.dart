@@ -50,7 +50,7 @@ class _AddPlantState extends State<AddPlant> {
                                   MediaQuery.of(context).size.height * 0.035,
                             ),
                             Image(
-                              image: AssetImage("Assets/Images/ntomato.png"),
+                              image: AssetImage("assets/Images/ntomato.png"),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 4.0),
