@@ -356,7 +356,7 @@ class _WeatherState extends State<Weather> {
                                     fontWeight: FontWeight.w400),
                               ),
                               Text(
-                                "11 m/h",
+                                "50%",
                                 style: TextStyle(fontWeight: FontWeight.w800),
                               )
                             ],

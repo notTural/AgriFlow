@@ -1,20 +1,19 @@
 import 'package:agri_flow/Screens/login_screen.dart';
-import 'package:agri_flow/Screens/main_screen.dart';
-import 'package:agri_flow/Screens/notification_screen.dart';
+import 'package:agri_flow/Screens/report_screen.dart';
 import 'package:agri_flow/Widgets/appbar.dart';
 import 'package:agri_flow/Widgets/drawer.dart';
-import 'package:agri_flow/Widgets/weather.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class ReportScreen extends StatefulWidget {
-  final routeName = "ReportScreen";
+class MainScreen extends StatefulWidget {
+  final routeName = "MainScreen";
+
   @override
-  _ReportScreenState createState() => _ReportScreenState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _ReportScreenState extends State<ReportScreen> {
-  int _selectedIndex = 2;
+class _MainScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
+  List<Widget> route = [MainScreen(),LoginScreen(),ReportScreen()]
   void _onItemTapped(int index) {
     _selectedIndex = index;
     Navigator.pushNamed(context, MainScreen().routeName);
@@ -23,6 +22,10 @@ class _ReportScreenState extends State<ReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerNavigation(),
+      body: Column(
+        children: <Widget>[AppBarModified(), Text("Hello")],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.cyan,
         items: const <BottomNavigationBarItem>[
@@ -41,13 +44,6 @@ class _ReportScreenState extends State<ReportScreen> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-      ),
-      drawer: DrawerNavigation(),
-      body: Column(
-        children: <Widget>[
-          AppBarModified(),
-          Weather(),
-        ],
       ),
     );
   }
