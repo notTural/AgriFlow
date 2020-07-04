@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Widget> routes = [AddPlant(), LoginScreen(), ReportScreen()];
+  List<Widget> routes = [MainScreen(), AddPlant(), ReportScreen()];
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
