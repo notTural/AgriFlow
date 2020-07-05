@@ -26,6 +26,8 @@ class _PlantsScreenState extends State<PlantsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var providerx = context.watch<PlantsProvider>();
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -69,101 +71,122 @@ class _PlantsScreenState extends State<PlantsScreen> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 20, 15, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Weather(),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Plants",
-                    style: TextStyle(fontSize: 25),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, AddPlant().routeName);
-                    },
-                    child: Text(
-                      "+ Add Plant",
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Theme.of(context).primaryColor),
-                    ),
-                  ),
-                ],
+      body: Builder(
+        builder: (ctx) => Padding(
+          padding: const EdgeInsets.fromLTRB(15, 20, 15, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Weather(),
+              SizedBox(
+                height: 20,
               ),
-            ),
-            SingleChildScrollView(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
-              children: [
-                Container(
-                  width: 140,
-                  height: MediaQuery.of(context).size.height * 0.23,
-                  child: Card(
-                    elevation: 0,
-                    color: Color.fromARGB(255, 231, 231, 231),
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(2),
-                          width: double.infinity,
-                          height: 100,
-                          child: Card(
-                              color: Color.fromRGBO(50, 184, 55, 100),
-                              elevation: 0,
-                              child: Image(
-                                image: AssetImage("Assets/Images/tomato.png"),
-                              )),
-                        ),
-                        Text(
-                          "Tomato",
-                          style: TextStyle(fontWeight: FontWeight.w600),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Align(
-                                  alignment: Alignment.bottomLeft,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Plants",
+                      style: TextStyle(fontSize: 25),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, AddPlant().routeName);
+                      },
+                      child: Text(
+                        "+ Add Plant",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SingleChildScrollView(
+                  child: Row(
+                children: [
+                  Container(
+                    width: 140,
+                    height: MediaQuery.of(context).size.height * 0.23,
+                    child: InkWell(
+                      onTap: () {
+                        Scaffold.of(ctx).showSnackBar(
+                          SnackBar(
+                            content: Text('Calculating Evapotranspiration...'),
+                          ),
+                        );
+                        var et0 = providerx.calculateEt0();
+                        et0.then((val) {
+                          Scaffold.of(ctx).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                  "Evapotranspiration rate is ${val.toStringAsFixed(3)}"),
+                            ),
+                          );
+                        });
+                      },
+                      child: Card(
+                        elevation: 0,
+                        color: Color.fromARGB(255, 231, 231, 231),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(2),
+                              width: double.infinity,
+                              height: 100,
+                              child: Card(
+                                  color: Color.fromRGBO(50, 184, 55, 100),
+                                  elevation: 0,
                                   child: Image(
-                                    image: AssetImage(
-                                        "Assets/Images/watering.png"),
+                                    image:
+                                        AssetImage("Assets/Images/tomato.png"),
                                   )),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text("1 hr"),
+                            Text(
+                              "Tomato",
+                              style: TextStyle(fontWeight: FontWeight.w600),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 30.0),
-                              child: SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.08,
-                                height:
-                                    MediaQuery.of(context).size.width * 0.08,
-                                child: Image(
-                                  image:
-                                      AssetImage("Assets/Images/level1.png"),
+                            Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Align(
+                                      alignment: Alignment.bottomLeft,
+                                      child: Image(
+                                        image: AssetImage(
+                                            "Assets/Images/watering.png"),
+                                      )),
                                 ),
-                              ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text("1 hr"),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 30.0),
+                                  child: SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.08,
+                                    height: MediaQuery.of(context).size.width *
+                                        0.08,
+                                    child: Image(
+                                      image: AssetImage(
+                                          "Assets/Images/level1.png"),
+                                    ),
+                                  ),
+                                )
+                              ],
                             )
                           ],
-                        )
-                      ],
+                        ),
+                      ),
                     ),
-                  ),
-                )
-              ],
-            ))
-          ],
+                  )
+                ],
+              ))
+            ],
+          ),
         ),
       ),
     );

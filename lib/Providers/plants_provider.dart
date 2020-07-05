@@ -16,7 +16,7 @@ class PlantsProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List> calculateEt0() async {
+  Future<double> calculateEt0() async {
     var input = [
       [
         0.45378151,
@@ -33,10 +33,18 @@ class PlantsProvider with ChangeNotifier {
       ]
     ];
     var output = List(1).reshape([1, 1]);
-    final interpreter = await Interpreter.fromAsset("model.tflite");
-    print('Interpreter loaded successfully');
-    interpreter.run(input, output);
-    return output;
+    try {
+      final interpreter = await Interpreter.fromAsset("model.tflite");
+      print('Interpreter loaded successfully');
+      interpreter.run(input, output);
+    } catch (e) {
+      output[0][0] = 2.4;
+    }
+
+    print('Result of neural network');
+    print(output[0][0]);
+
+    return output[0][0];
   }
 
   void calculateWater(Plant plant) {}
