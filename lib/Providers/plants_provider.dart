@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
 class PlantsProvider with ChangeNotifier {
-  List<Plant> _plants = [Plant(0, DateTime.now(), 0.24)];
+  List<Plant> _plants = [Plant(0, DateTime.now(), 10, 0.24)];
 
   List<Plant> get plants {
     return [..._plants];
