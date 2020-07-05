@@ -116,6 +116,7 @@ class _PlantsScreenState extends State<PlantsScreen> {
                     if (aPlant.typeId == 0) {
                       imagePath += "tomato.png";
                       plantName = "Pomidor";
+                      
                     } else if (aPlant.typeId == 1) {
                       imagePath += "eggPlant.png";
                       plantName = "Badımcan";
@@ -147,7 +148,7 @@ class _PlantsScreenState extends State<PlantsScreen> {
                               SnackBar(
                                 duration: const Duration(seconds: 3),
                                 content: Text(
-                                    'Water need of tomato...${(val * 0.89).toStringAsFixed(2)} lt'),
+                                    'Water need of ...${(val * 0.89).toStringAsFixed(2)} lt'),
                               ),
                             );
                           });
@@ -197,36 +198,14 @@ class _PlantsScreenState extends State<PlantsScreen> {
                                               0.08,
                                       child: Image(
                                         image: AssetImage(
-                                            "Assets/Images/watering.png"),
-                                      )),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Text("1 hr"),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15.0),
-                                  child: Row(
-                                    children: <Widget>[
-                                      SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.06,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.06,
-                                        child: Image(
-                                          image: AssetImage(
-                                              "Assets/Images/level1.png"),
-                                        ),
+                                            "Assets/Images/level2.png"),
                                       ),
-                                      Text('1.19L')
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );
