@@ -10,7 +10,7 @@ class _WeatherState extends State<Weather> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: 0,
       child: Container(
         width: double.infinity,
         color: Colors.white,

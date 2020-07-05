@@ -1,4 +1,5 @@
 import 'package:agri_flow/Screens/notification_screen.dart';
+import 'package:agri_flow/Screens/plants_screen.dart';
 import 'package:agri_flow/Screens/report_screen.dart';
 import 'package:agri_flow/Screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -126,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Theme.of(context).primaryColor,
                   onPressed: () {
                     if (userValidator(usernameController, passwordController))
-                      Navigator.pushNamed(context, ReportScreen().routeName);
+                      Navigator.pushNamed(context, PlantsScreen().routeName);
                   },
                   child: Container(
                     child: Center(
