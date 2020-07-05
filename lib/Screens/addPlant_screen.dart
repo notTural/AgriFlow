@@ -386,8 +386,8 @@ class _AddPlantState extends State<AddPlant> {
     }
 
     var bioConst = BIOLOGIC_CONST[selectedPlantInd.toString()][arrInd];
-    print('Bio');
-    print(bioConst);
+    // print('Bio');
+    // print(bioConst);
     var plant = new Plant(selectedPlantInd, selectedDate, bioConst);
     Provider.of<PlantsProvider>(context, listen: false).addNewPlant(plant);
     Navigator.pop(context);
