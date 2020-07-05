@@ -114,15 +114,24 @@ class _PlantsScreenState extends State<PlantsScreen> {
                       onTap: () {
                         Scaffold.of(ctx).showSnackBar(
                           SnackBar(
-                            content: Text('Calculating Evapotranspiration...'),
+                            duration: const Duration(milliseconds: 5),
+                            content: Text(
+                                'Calculating Evapotranspiration rate of tomato...'),
                           ),
                         );
                         var et0 = providerx.calculateEt0();
                         et0.then((val) {
-                          Scaffold.of(ctx).showSnackBar(
+                          /*  Scaffold.of(ctx).showSnackBar(
                             SnackBar(
                               content: Text(
                                   "Evapotranspiration rate is ${val.toStringAsFixed(3)}"),
+                            ),
+                          ); */
+                          Scaffold.of(ctx).showSnackBar(
+                            SnackBar(
+                              duration: const Duration(seconds: 3),
+                              content: Text(
+                                  'Water need of tomato...${(val * 0.89).toStringAsFixed(2)} lt'),
                             ),
                           );
                         });
