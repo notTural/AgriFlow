@@ -1,5 +1,6 @@
 import 'package:agri_flow/Providers/plants_provider.dart';
 import 'package:agri_flow/Screens/addPlant_screen.dart';
+import 'package:agri_flow/Screens/blog_screen.dart';
 import 'package:agri_flow/Screens/main_screen.dart';
 import 'package:agri_flow/Screens/notification_screen.dart';
 import 'package:agri_flow/Screens/plants_screen.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
           MainScreen().routeName: (ctx) => MainScreen(),
           PlantsScreen().routeName: (ctx) => PlantsScreen(),
           ReportScreen().routeName: (ctx) => ReportScreen(),
+          BlogSCreen().routeName: (ctx) => BlogSCreen(),
         },
       ),
     );

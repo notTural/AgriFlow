@@ -8,6 +8,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:path_provider/path_provider.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
+import 'blog_screen.dart';
 import 'notification_screen.dart';
 
 class ReportScreen extends StatefulWidget {
@@ -17,7 +18,6 @@ class ReportScreen extends StatefulWidget {
 }
 
 class _ReportScreenState extends State<ReportScreen> {
-  
 /*   Future<File> getFile(String fileName) async {
     final appDir = await getTemporaryDirectory();
     final appPath = appDir.path;
@@ -41,7 +41,13 @@ class _ReportScreenState extends State<ReportScreen> {
   int _selectedIndex = 2;
   void _onItemTapped(int index) {
     if (index != _selectedIndex) {
-      Navigator.pushNamed(context, PlantsScreen().routeName);
+      if (index == 0) {
+        Navigator.pushNamed(context, PlantsScreen().routeName);
+      } else if (index == 1) {
+        Navigator.pushNamed(context, BlogSCreen().routeName);
+      } else {
+        Navigator.pushNamed(context, ReportScreen().routeName);
+      }
     }
   }
 
