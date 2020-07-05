@@ -19,7 +19,6 @@ class _AddPlantState extends State<AddPlant> {
   String _selectedLocation;
 
   DateTime selectedDate;
-  String label = "tarix secin";
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class _AddPlantState extends State<AddPlant> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text("Plants",
+                child: Text("Bitkilər",
                     style:
                         TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
               ),
@@ -80,7 +79,7 @@ class _AddPlantState extends State<AddPlant> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 4.0),
-                                    child: Text('Tomato'),
+                                    child: Text('Pomidor'),
                                   ),
                                 ],
                               )
@@ -123,7 +122,7 @@ class _AddPlantState extends State<AddPlant> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 4.0),
-                                    child: Text('Eggplant'),
+                                    child: Text('Badımcan'),
                                   ),
                                 ],
                               )
@@ -166,7 +165,7 @@ class _AddPlantState extends State<AddPlant> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 4.0),
-                                    child: Text('Tomato'),
+                                    child: Text('Üzüm'),
                                   ),
                                 ],
                               )
@@ -184,7 +183,7 @@ class _AddPlantState extends State<AddPlant> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text("Location",
+                child: Text("Ərazi",
                     style:
                         TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
               ),
@@ -205,7 +204,7 @@ class _AddPlantState extends State<AddPlant> {
                   iconEnabledColor: Theme.of(context).accentColor,
                   iconSize: 20,
                   underline: SizedBox(),
-                  hint: Text("Erazi"),
+                  hint: Text("-"),
                   items: [
                     DropdownMenuItem(
                       child: Container(
@@ -245,7 +244,7 @@ class _AddPlantState extends State<AddPlant> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Text(
-                  "Ekilme tarixi",
+                  "Əkilmə tarixi",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                 ),
               ),
@@ -370,12 +369,12 @@ class _AddPlantState extends State<AddPlant> {
     );
   }
 
-  bool addPlantValidation() {
-    if (selectedPlantInd == null ||
-        _selectedLocation == null ||
-        selectedDate == null) {
-      return false;
-    }
+  void addPlantValidation() {
+    // if (selectedPlantInd == null ||
+    //     _selectedLocation == null ||
+    //     selectedDate == null) {
+    //   return false;
+    // }
 
     int arrInd;
     if (selectedDate.month < 5) {
@@ -391,5 +390,6 @@ class _AddPlantState extends State<AddPlant> {
     print(bioConst);
     var plant = new Plant(selectedPlantInd, selectedDate, bioConst);
     Provider.of<PlantsProvider>(context, listen: false).addNewPlant(plant);
+    Navigator.pop(context);
   }
 }
