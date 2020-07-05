@@ -8,13 +8,8 @@ class Plant {
   double bioConst;
   String level;
   String hour;
-<<<<<<< HEAD
   double rndn;
-  Plant(this.typeId, this.plantDate, this.bioConst) {
-=======
-
-  Plant(this.typeId, this.plantDate, this.hectar, this.bioConst) {
->>>>>>> 3e247d6bea9b4f3a1676b74be9dac29929536ce2
+  Plant(this.typeId, this.plantDate, this.bioConst, double d) {
     var rnd = new Random();
     rndn = rnd.nextDouble();
     level = (1 + rnd.nextInt(3)).toString();

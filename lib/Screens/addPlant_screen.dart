@@ -397,7 +397,7 @@ class _AddPlantState extends State<AddPlant> {
                               width: 10,
                             ),
                             Text(
-                              "hectares",
+                              "Ha",
                               style: TextStyle(fontSize: 16),
                             ),
                           ],
@@ -410,71 +410,6 @@ class _AddPlantState extends State<AddPlant> {
               SizedBox(
                 height: 60,
               ),
-<<<<<<< HEAD
-            ),
-            InkWell(
-              onTap: () {
-                DatePicker.showDatePicker(context,
-                    showTitleActions: true,
-                    minTime: DateTime(2015, 3, 5),
-                    maxTime: DateTime.now(),
-                    onChanged: (date) {}, onConfirm: (date) {
-                  setState(() {
-                    selectedDate = date;
-                  });
-                }, currentTime: DateTime.now(), locale: LocaleType.az);
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      elevation: 10,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        height: 40,
-                        child: Text(selectedDate != null
-                            ? selectedDate.year.toString()
-                            : "----"),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      elevation: 10,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        height: 40,
-                        child: Text(selectedDate != null
-                            ? selectedDate.month.toString().padLeft(2, '0')
-                            : "--"),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      elevation: 10,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        height: 40,
-                        child: Text(selectedDate != null
-                            ? selectedDate.day.toString().padLeft(2, '0')
-                            : "--"),
-=======
               Center(
                 child: SizedBox(
                   height: 45,
@@ -485,7 +420,6 @@ class _AddPlantState extends State<AddPlant> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
->>>>>>> 3e247d6bea9b4f3a1676b74be9dac29929536ce2
                       ),
                     ),
                     onPressed: () {

@@ -44,7 +44,7 @@ class IntroScreen extends StatelessWidget {
                   elevation: 3,
                   color: Color.fromARGB(255, 215, 245, 245),
                   onPressed: () {
-                    Navigator.pushNamed(context, MainScreen().routeName);
+                    Navigator.pushNamed(context, LoginScreen().routeName);
                   },
                   child: Container(
                     child: Center(
