@@ -5,6 +5,7 @@ import 'package:agri_flow/Widgets/appbar.dart';
 import 'package:agri_flow/Widgets/drawer.dart';
 import 'package:agri_flow/Widgets/weather.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -26,6 +27,8 @@ class _PlantsScreenState extends State<PlantsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final plantsData = Provider.of<PlantsProvider>(context);
+    final plantsList = plantsData.plants;
     var providerx = context.watch<PlantsProvider>();
 
     return Scaffold(
@@ -105,95 +108,109 @@ class _PlantsScreenState extends State<PlantsScreen> {
                 ),
               ),
               SingleChildScrollView(
-                  child: Row(
-                children: [
-                  Container(
-                    width: 140,
-                    height: MediaQuery.of(context).size.height * 0.23,
-                    child: InkWell(
-                      onTap: () {
-                        Scaffold.of(ctx).showSnackBar(
-                          SnackBar(
-                            duration: const Duration(milliseconds: 5),
-                            content: Text(
-                                'Calculating Evapotranspiration rate of tomato...'),
-                          ),
-                        );
-                        var et0 = providerx.calculateEt0();
-                        et0.then((val) {
-                          /*  Scaffold.of(ctx).showSnackBar(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: plantsList.map((aPlant) {
+                    var imagePath = "Assets/Images/";
+                    var plantName = "";
+                    if (aPlant.typeId == 0) {
+                      imagePath += "tomato.png";
+                      plantName = "Pomidor";
+                    } else if (aPlant.typeId == 1) {
+                      imagePath += "eggPlant.png";
+                      plantName = "Badımcan";
+                    } else {
+                      imagePath += "Grape.png";
+                      plantName = "Üzüm";
+                    }
+                    return Container(
+                      width: 140,
+                      height: MediaQuery.of(context).size.height * 0.23,
+                      child: InkWell(
+                        onTap: () {
+                          Scaffold.of(ctx).showSnackBar(
+                            SnackBar(
+                              duration: const Duration(milliseconds: 5),
+                              content: Text(
+                                  'Calculating Evapotranspiration rate of tomato...'),
+                            ),
+                          );
+                          var et0 = providerx.calculateEt0();
+                          et0.then((val) {
+                            /*  Scaffold.of(ctx).showSnackBar(
                             SnackBar(
                               content: Text(
                                   "Evapotranspiration rate is ${val.toStringAsFixed(3)}"),
                             ),
                           ); */
-                          Scaffold.of(ctx).showSnackBar(
-                            SnackBar(
-                              duration: const Duration(seconds: 3),
-                              content: Text(
-                                  'Water need of tomato...${(val * 0.89).toStringAsFixed(2)} lt'),
-                            ),
-                          );
-                        });
-                      },
-                      child: Card(
-                        elevation: 0,
-                        color: Color.fromARGB(255, 231, 231, 231),
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(2),
-                              width: double.infinity,
-                              height: 100,
-                              child: Card(
-                                  color: Color.fromRGBO(50, 184, 55, 100),
-                                  elevation: 0,
-                                  child: Image(
-                                    image:
-                                        AssetImage("Assets/Images/tomato.png"),
-                                  )),
-                            ),
-                            Text(
-                              "Tomato",
-                              style: TextStyle(fontWeight: FontWeight.w600),
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Align(
-                                      alignment: Alignment.bottomLeft,
+                            Scaffold.of(ctx).showSnackBar(
+                              SnackBar(
+                                duration: const Duration(seconds: 3),
+                                content: Text(
+                                    'Water need of tomato...${(val * 0.89).toStringAsFixed(2)} lt'),
+                              ),
+                            );
+                          });
+                        },
+                        child: Card(
+                          elevation: 0,
+                          color: Color.fromARGB(255, 231, 231, 231),
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(2),
+                                width: double.infinity,
+                                height: 100,
+                                child: Card(
+                                    color: Color.fromRGBO(50, 184, 55, 100),
+                                    elevation: 0,
+                                    child: Image(
+                                      image: AssetImage(imagePath),
+                                    )),
+                              ),
+                              Text(
+                                plantName,
+                                style: TextStyle(fontWeight: FontWeight.w600),
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Align(
+                                        alignment: Alignment.bottomLeft,
+                                        child: Image(
+                                          image: AssetImage(
+                                              "Assets/Images/watering.png"),
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Text("1 hr"),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 30.0),
+                                    child: SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.08,
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.08,
                                       child: Image(
                                         image: AssetImage(
-                                            "Assets/Images/watering.png"),
-                                      )),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Text("1 hr"),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 30.0),
-                                  child: SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.08,
-                                    height: MediaQuery.of(context).size.width *
-                                        0.08,
-                                    child: Image(
-                                      image: AssetImage(
-                                          "Assets/Images/level1.png"),
+                                            "Assets/Images/level1.png"),
+                                      ),
                                     ),
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                ],
-              ))
+                    );
+                  }).toList(),
+                ),
+              )
             ],
           ),
         ),

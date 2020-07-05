@@ -98,7 +98,7 @@ class _WeatherState extends State<Weather> {
                                   "2",
                                 ),
                                 Text(
-                                  "Sun",
+                                  "Thu",
                                 ),
                               ],
                             ),
@@ -133,7 +133,7 @@ class _WeatherState extends State<Weather> {
                                     "3",
                                   ),
                                   Text(
-                                    "Sun",
+                                    "Fri",
                                   ),
                                 ],
                               ),
@@ -169,7 +169,7 @@ class _WeatherState extends State<Weather> {
                                     "4",
                                   ),
                                   Text(
-                                    "Sun",
+                                    "Sat",
                                   ),
                                 ],
                               ),

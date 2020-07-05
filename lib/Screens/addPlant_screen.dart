@@ -36,7 +36,7 @@ class _AddPlantState extends State<AddPlant> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text("Bitkilər",
+                child: Text("Plants",
                     style:
                         TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
               ),
@@ -79,7 +79,7 @@ class _AddPlantState extends State<AddPlant> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 4.0),
-                                    child: Text('Pomidor'),
+                                    child: Text('Tomato'),
                                   ),
                                 ],
                               )
@@ -122,7 +122,7 @@ class _AddPlantState extends State<AddPlant> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 4.0),
-                                    child: Text('Badımcan'),
+                                    child: Text('Eggplant'),
                                   ),
                                 ],
                               )
@@ -165,7 +165,7 @@ class _AddPlantState extends State<AddPlant> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 4.0),
-                                    child: Text('Üzüm'),
+                                    child: Text('Grape'),
                                   ),
                                 ],
                               )
@@ -183,7 +183,7 @@ class _AddPlantState extends State<AddPlant> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text("Ərazi",
+                child: Text("Area",
                     style:
                         TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
               ),
@@ -244,7 +244,7 @@ class _AddPlantState extends State<AddPlant> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Text(
-                  "Əkilmə tarixi",
+                  "Date",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                 ),
               ),
@@ -325,7 +325,7 @@ class _AddPlantState extends State<AddPlant> {
               width: 110,
               child: RaisedButton(
                 child: Text(
-                  "Əlavə et",
+                  "Add",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
