@@ -173,16 +173,23 @@ class _PlantsScreenState extends State<PlantsScreen> {
                                   child: Text("1 hr"),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 30.0),
-                                  child: SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.08,
-                                    height: MediaQuery.of(context).size.width *
-                                        0.08,
-                                    child: Image(
-                                      image: AssetImage(
-                                          "Assets/Images/level1.png"),
-                                    ),
+                                  padding: const EdgeInsets.only(left: 15.0),
+                                  child: Row(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
+                                        height:
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
+                                        child: Image(
+                                          image: AssetImage(
+                                              "Assets/Images/level1.png"),
+                                        ),
+                                      ),
+                                      Text('1.19L')
+                                    ],
                                   ),
                                 )
                               ],
