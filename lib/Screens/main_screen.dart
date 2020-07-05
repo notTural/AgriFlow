@@ -1,10 +1,14 @@
+import 'package:agri_flow/Models/plant.dart';
+import 'package:agri_flow/Providers/plants_provider.dart';
 import 'package:agri_flow/Screens/addPlant_screen.dart';
 import 'package:agri_flow/Screens/login_screen.dart';
+import 'package:agri_flow/Screens/plants_screen.dart';
 import 'package:agri_flow/Screens/report_screen.dart';
 import 'package:agri_flow/Widgets/appbar.dart';
 import 'package:agri_flow/Widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   final routeName = "MainScreen";
@@ -14,7 +18,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Widget> routes = [MainScreen(), AddPlant(), ReportScreen()];
+  List<Widget> routes = [PlantsScreen(), AddPlant(), ReportScreen()];
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {

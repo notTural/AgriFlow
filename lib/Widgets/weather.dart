@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Weather extends StatefulWidget {
@@ -10,7 +11,7 @@ class _WeatherState extends State<Weather> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: 0,
       child: Container(
         width: double.infinity,
         color: Colors.white,
@@ -43,7 +44,7 @@ class _WeatherState extends State<Weather> {
                         ],
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.36,
+                        width: MediaQuery.of(context).size.width * 0.28,
                       ),
                       Row(
                         children: <Widget>[
@@ -54,7 +55,7 @@ class _WeatherState extends State<Weather> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              '27°C',
+                              '34°C',
                               style: TextStyle(
                                 color: Color.fromRGBO(128, 197, 232, 100),
                                 fontWeight: FontWeight.w600,
@@ -71,173 +72,184 @@ class _WeatherState extends State<Weather> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.18,
-                    height: MediaQuery.of(context).size.width * 0.23,
-                    color: Colors.white,
-                    child: Card(
+              child: Container(
+                height: MediaQuery.of(context).size.width * 0.23,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.18,
+                      height: MediaQuery.of(context).size.width * 0.23,
                       color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
+                      child: Card(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        elevation: 5,
+                        child: Container(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.01,
+                                top: MediaQuery.of(context).size.width * 0.05),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  "2",
+                                ),
+                                Text(
+                                  "Sun",
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
-                      elevation: 5,
-                      child: Container(
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.01,
-                              top: MediaQuery.of(context).size.width * 0.05),
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                "2",
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.18,
+                      height: MediaQuery.of(context).size.width * 0.23,
+                      color: Colors.white,
+                      child: Card(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        elevation: 5,
+                        child: Container(
+                          child: InkWell(
+                            onTap: () {
+                              print("tapped");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.01,
+                                  top:
+                                      MediaQuery.of(context).size.width * 0.05),
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                    "3",
+                                  ),
+                                  Text(
+                                    "Sun",
+                                  ),
+                                ],
                               ),
-                              Text(
-                                "Sun",
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.18,
+                      height: MediaQuery.of(context).size.width * 0.23,
+                      color: Colors.white,
+                      child: Card(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        elevation: 5,
+                        child: Container(
+                          child: InkWell(
+                            onTap: () {
+                              print("tapped");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.01,
+                                  top:
+                                      MediaQuery.of(context).size.width * 0.05),
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                    "4",
+                                  ),
+                                  Text(
+                                    "Sun",
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.18,
-                    height: MediaQuery.of(context).size.width * 0.23,
-                    color: Colors.white,
-                    child: Card(
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.18,
+                      height: MediaQuery.of(context).size.width * 0.23,
                       color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 5,
-                      child: Container(
-                        child: InkWell(
-                          onTap: () {
-                            print("tapped");
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.01,
-                                top: MediaQuery.of(context).size.width * 0.05),
-                            child: Column(
-                              children: <Widget>[
-                                Text(
-                                  "3",
-                                ),
-                                Text(
-                                  "Sun",
-                                ),
-                              ],
+                      child: Card(
+                        color: Color.fromRGBO(128, 197, 232, 100),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        elevation: 5,
+                        child: Container(
+                          child: InkWell(
+                            onTap: () {
+                              print("tapped");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.01,
+                                  top:
+                                      MediaQuery.of(context).size.width * 0.05),
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                    "5",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  Text(
+                                    "Sun",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.18,
-                    height: MediaQuery.of(context).size.width * 0.23,
-                    color: Colors.white,
-                    child: Card(
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.18,
+                      height: MediaQuery.of(context).size.width * 0.23,
                       color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 5,
-                      child: Container(
-                        child: InkWell(
-                          onTap: () {
-                            print("tapped");
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.01,
-                                top: MediaQuery.of(context).size.width * 0.05),
-                            child: Column(
-                              children: <Widget>[
-                                Text(
-                                  "4",
-                                ),
-                                Text(
-                                  "Sun",
-                                ),
-                              ],
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        elevation: 5,
+                        child: Container(
+                          child: InkWell(
+                            onTap: () {
+                              Scaffold.of(context).showSnackBar(SnackBar(
+                                content: Text('Coming Soon...'),
+                              ));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.005,
+                                  top:
+                                      MediaQuery.of(context).size.width * 0.01),
+                              child: Icon(
+                                Icons.date_range,
+                                size: MediaQuery.of(context).size.width * 0.10,
+                                color: Colors.cyan,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.18,
-                    height: MediaQuery.of(context).size.width * 0.23,
-                    color: Colors.white,
-                    child: Card(
-                      color: Color.fromRGBO(128, 197, 232, 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 5,
-                      child: Container(
-                        child: InkWell(
-                          onTap: () {
-                            print("tapped");
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.01,
-                                top: MediaQuery.of(context).size.width * 0.05),
-                            child: Column(
-                              children: <Widget>[
-                                Text(
-                                  "5",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Text(
-                                  "Sun",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.18,
-                    height: MediaQuery.of(context).size.width * 0.23,
-                    color: Colors.white,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 5,
-                      child: Container(
-                        child: InkWell(
-                          onTap: () {
-                            Scaffold.of(context).showSnackBar(SnackBar(
-                              content: Text('Coming Soon...'),
-                            ));
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.005,
-                                top: MediaQuery.of(context).size.width * 0.01),
-                            child: Icon(
-                              Icons.date_range,
-                              size: MediaQuery.of(context).size.width * 0.10,
-                              color: Colors.cyan,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
             Container(
@@ -295,7 +307,7 @@ class _WeatherState extends State<Weather> {
                                     fontWeight: FontWeight.w400),
                               ),
                               Text(
-                                "1%",
+                                "0%",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w800,
@@ -327,7 +339,7 @@ class _WeatherState extends State<Weather> {
                                     fontWeight: FontWeight.w400),
                               ),
                               Text(
-                                "11 m/h",
+                                "18 km/h",
                                 style: TextStyle(fontWeight: FontWeight.w800),
                               )
                             ],
@@ -351,6 +363,35 @@ class _WeatherState extends State<Weather> {
                             children: <Widget>[
                               Text(
                                 "Humidity",
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                "33%",
+                                style: TextStyle(fontWeight: FontWeight.w800),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, top: 16),
+                    child: Container(
+                        child: Row(
+                      children: <Widget>[
+                        Image(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          image: AssetImage("Assets/Images/soilt.png"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Column(
+                            children: <Widget>[
+                              Text(
+                                "Soil Moisture",
                                 style: TextStyle(
                                     color: Colors.grey,
                                     fontWeight: FontWeight.w400),
