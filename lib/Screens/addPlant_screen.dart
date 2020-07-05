@@ -247,143 +247,165 @@ class _AddPlantState extends State<AddPlant> {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Text("Area",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  children: [
-                    Material(
-                      elevation: 10,
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        width: 80,
-                        height: 40,
-                        child: Center(
-                          child: TextField(
-                            controller: hectar,
-                            textAlign: TextAlign.center,
-                            keyboardType: TextInputType.number,
-                            maxLines: 1,
-                            decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 5),
-                              hintText: "--",
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 226, 230, 234),
-                                  width: 0,
-                                ),
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              // border: OutlineInputBorder(
-                              //   borderSide: BorderSide(
-                              //     color: Color.fromARGB(255, 226, 230, 234),
-                              //     width: 2,
-                              //   ),
-                              //   borderRadius: BorderRadius.circular(40),
-                              // ),
-                            ),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Text(
+                            "Date",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 16),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "hectares",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Text(
-                    "Date",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  DatePicker.showDatePicker(context,
-                      showTitleActions: true,
-                      minTime: DateTime(2000, 3, 5),
-                      maxTime: DateTime.now(),
-                      onChanged: (date) {}, onConfirm: (date) {
-                    setState(() {
-                      selectedDate = date;
-                    });
-                  }, currentTime: DateTime.now(), locale: LocaleType.az);
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        elevation: 10,
+                      InkWell(
+                        onTap: () {
+                          DatePicker.showDatePicker(context,
+                              showTitleActions: true,
+                              minTime: DateTime(2000, 3, 5),
+                              maxTime: DateTime.now(),
+                              onChanged: (date) {}, onConfirm: (date) {
+                            setState(() {
+                              selectedDate = date;
+                            });
+                          },
+                              currentTime: DateTime.now(),
+                              locale: LocaleType.az);
+                        },
                         child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          height: 40,
-                          child: Text(selectedDate != null
-                              ? selectedDate.year.toString()
-                              : "----"),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        elevation: 10,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          height: 40,
-                          child: Text(selectedDate != null
-                              ? selectedDate.month.toString().padLeft(2, '0')
-                              : "--"),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        elevation: 10,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          height: 40,
-                          child: Text(selectedDate != null
-                              ? selectedDate.day.toString().padLeft(2, '0')
-                              : "--"),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Row(
+                            children: [
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 10,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  height: 40,
+                                  child: Text(selectedDate != null
+                                      ? selectedDate.year.toString()
+                                      : "----"),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 10,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  height: 40,
+                                  child: Text(selectedDate != null
+                                      ? selectedDate.month
+                                          .toString()
+                                          .padLeft(2, '0')
+                                      : "--"),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 10,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  height: 40,
+                                  child: Text(selectedDate != null
+                                      ? selectedDate.day
+                                          .toString()
+                                          .padLeft(2, '0')
+                                      : "--"),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
-                ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Text("Area",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 16)),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          children: [
+                            Material(
+                              elevation: 10,
+                              borderRadius: BorderRadius.circular(10),
+                              child: Container(
+                                width: 80,
+                                height: 40,
+                                child: Center(
+                                  child: TextField(
+                                    controller: hectar,
+                                    textAlign: TextAlign.center,
+                                    keyboardType: TextInputType.number,
+                                    maxLines: 1,
+                                    decoration: InputDecoration(
+                                      contentPadding:
+                                          EdgeInsets.symmetric(horizontal: 5),
+                                      hintText: "--",
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color.fromARGB(
+                                              255, 226, 230, 234),
+                                          width: 0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                      ),
+                                      // border: OutlineInputBorder(
+                                      //   borderSide: BorderSide(
+                                      //     color: Color.fromARGB(255, 226, 230, 234),
+                                      //     width: 2,
+                                      //   ),
+                                      //   borderRadius: BorderRadius.circular(40),
+                                      // ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "hectares",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
               ),
               SizedBox(
                 height: 60,
