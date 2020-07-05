@@ -1,3 +1,5 @@
+import 'package:agri_flow/Screens/plants_screen.dart';
+import 'package:agri_flow/Screens/report_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -81,13 +83,13 @@ class DrawerNavigation extends StatelessWidget {
               leading: Icon(MdiIcons.sprout),
               title: new Text("Plants"),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, PlantsScreen().routeName);
               }),
           new ListTile(
               leading: Icon(MdiIcons.chartAreaspline),
               title: new Text("Reports"),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, ReportScreen().routeName);
               }),
           new ListTile(
               leading: Icon(MdiIcons.sale),

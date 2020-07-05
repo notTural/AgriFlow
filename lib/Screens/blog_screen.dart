@@ -191,7 +191,7 @@ class _BlogSCreenState extends State<BlogSCreen> {
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(7, 7, 7, 3),
                                 child: Text(
-                                  "Agriculture and Water Conservation",
+                                  "Water Conservation",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 15),
@@ -249,7 +249,7 @@ class _BlogSCreenState extends State<BlogSCreen> {
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(7, 7, 7, 3),
                                 child: Text(
-                                  "Top 10 Benefits of Hydroponic Farming",
+                                  "Benefits of Hydroponic Farming",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 15),

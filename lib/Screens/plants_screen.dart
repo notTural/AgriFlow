@@ -122,14 +122,13 @@ class _PlantsScreenState extends State<PlantsScreen> {
                     var plantName = "";
                     if (aPlant.typeId == 0) {
                       imagePath += "tomato.png";
-                      plantName = "Pomidor";
-                      
+                      plantName = "Tomato";
                     } else if (aPlant.typeId == 1) {
                       imagePath += "eggPlant.png";
-                      plantName = "Badımcan";
+                      plantName = "Egg Plant";
                     } else {
                       imagePath += "Grape.png";
-                      plantName = "Üzüm";
+                      plantName = "Grape";
                     }
                     return Container(
                       width: 140,
@@ -138,12 +137,13 @@ class _PlantsScreenState extends State<PlantsScreen> {
                         onTap: () {
                           Scaffold.of(ctx).showSnackBar(
                             SnackBar(
-                              duration: const Duration(milliseconds: 5),
+                              duration: const Duration(milliseconds: 15),
                               content: Text(
                                   'Calculating Evapotranspiration rate of tomato...'),
                             ),
                           );
                           var et0 = providerx.calculateEt0();
+
                           et0.then((val) {
                             /*  Scaffold.of(ctx).showSnackBar(
                             SnackBar(
@@ -155,7 +155,7 @@ class _PlantsScreenState extends State<PlantsScreen> {
                               SnackBar(
                                 duration: const Duration(seconds: 3),
                                 content: Text(
-                                    'Water need of ...${(val * 0.89).toStringAsFixed(2)} lt'),
+                                    'Needed water amount is ...${((val + aPlant.rndn) * 0.89).toStringAsFixed(2)} lt'),
                               ),
                             );
                           });
@@ -205,13 +205,7 @@ class _PlantsScreenState extends State<PlantsScreen> {
                                               0.08,
                                       child: Image(
                                         image: AssetImage(
-<<<<<<< HEAD
-                                            "Assets/Images/level2.png"),
-=======
-                                            "Assets/Images/level" +
-                                                aPlant.level +
-                                                ".png"),
->>>>>>> f5595cadd7db68d664bcf816f3323c3793fffefd
+                                            "Assets/Images/level${aPlant.level}.png"),
                                       ),
                                     ),
                                   )

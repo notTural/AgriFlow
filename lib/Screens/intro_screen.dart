@@ -1,4 +1,5 @@
 import 'package:agri_flow/Screens/login_screen.dart';
+import 'package:agri_flow/Screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -43,7 +44,7 @@ class IntroScreen extends StatelessWidget {
                   elevation: 3,
                   color: Color.fromARGB(255, 215, 245, 245),
                   onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen().routeName);
+                    Navigator.pushNamed(context, MainScreen().routeName);
                   },
                   child: Container(
                     child: Center(

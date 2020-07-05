@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => PlantsProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
           primaryColor: Color.fromARGB(255, 128, 197, 232),

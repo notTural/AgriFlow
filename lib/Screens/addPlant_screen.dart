@@ -253,7 +253,7 @@ class _AddPlantState extends State<AddPlant> {
               onTap: () {
                 DatePicker.showDatePicker(context,
                     showTitleActions: true,
-                    minTime: DateTime(2000, 3, 5),
+                    minTime: DateTime(2015, 3, 5),
                     maxTime: DateTime.now(),
                     onChanged: (date) {}, onConfirm: (date) {
                   setState(() {

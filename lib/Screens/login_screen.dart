@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               children: [
                 Text(
-                  "Daxil ol",
+                  "Sign In",
                   style: TextStyle(
                     fontSize: 55,
                     fontFamily: "Helvetica",
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     maxLines: 1,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                      hintText: "İstifadəçi adı",
+                      hintText: "Login",
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color.fromARGB(255, 226, 230, 234),
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: _passwordVisible,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                      hintText: "Parol",
+                      hintText: "Password",
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color.fromARGB(255, 226, 230, 234),
@@ -132,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(
                     child: Center(
                       child: Text(
-                        "Giriş",
+                        "Sign In",
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Hesabınız yoxdur?",
+                      Text("Forgot Password?",
                           style: TextStyle(
                             color: Colors.redAccent,
                           )),
@@ -164,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               context, SignUpScreen().routeName);
                         },
                         child: Text(
-                          "Qeydiyyat",
+                          "Sign Up",
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                           ),
