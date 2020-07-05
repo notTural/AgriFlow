@@ -9,6 +9,7 @@ import 'package:flutter/rendering.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
+import 'blog_screen.dart';
 import 'notification_screen.dart';
 
 class PlantsScreen extends StatefulWidget {
@@ -21,7 +22,13 @@ class _PlantsScreenState extends State<PlantsScreen> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     if (index != _selectedIndex) {
-      Navigator.pushNamed(context, ReportScreen().routeName);
+      if (index == 0) {
+        Navigator.pushNamed(context, PlantsScreen().routeName);
+      } else if (index == 1) {
+        Navigator.pushNamed(context, BlogSCreen().routeName);
+      } else {
+        Navigator.pushNamed(context, ReportScreen().routeName);
+      }
     }
   }
 
@@ -185,7 +192,7 @@ class _PlantsScreenState extends State<PlantsScreen> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text("1 hr"),
+                                    child: Text(aPlant.hour + " hr"),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 30.0),
@@ -197,7 +204,9 @@ class _PlantsScreenState extends State<PlantsScreen> {
                                               0.08,
                                       child: Image(
                                         image: AssetImage(
-                                            "Assets/Images/level1.png"),
+                                            "Assets/Images/level" +
+                                                aPlant.level +
+                                                ".png"),
                                       ),
                                     ),
                                   )
