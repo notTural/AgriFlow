@@ -384,7 +384,7 @@ class _WeatherState extends State<Weather> {
                       children: <Widget>[
                         Image(
                           width: MediaQuery.of(context).size.width * 0.1,
-                          image: AssetImage("Assets/Images/soilt.png"),
+                          image: AssetImage("Assets/Images/soilmoisture.png"),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
