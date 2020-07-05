@@ -16,7 +16,7 @@ void main() async {
   runApp(MyApp());
 
   final appDocumentDir = await getApplicationDocumentsDirectory();
-  print(appDocumentDir.toString());
+  //print(appDocumentDir.toString());
   Hive.init(appDocumentDir.path);
 }
 
