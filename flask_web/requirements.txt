@@ -17,4 +17,4 @@ RPi.GPIO==0.6.5
 six==1.12.0
 spidev==3.2
 sysv-ipc==1.0.0
-Werkzeug==0.15.3
+Werkzeug==0.15.5
